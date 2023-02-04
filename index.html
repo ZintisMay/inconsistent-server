@@ -10,35 +10,51 @@
     INDEX
   </body>
   <script>
-    fetch("http://localhost:3333/100")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-      });
-    fetch("http://localhost:3333/50-50")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-        return "zintis";
-      })
-      .then((name) => {
-        console.log(name);
-      })
-      .catch((err) => {
-        console.log("CATCH");
-        console.log(err);
-      })
-      .finally((something) => {
-        console.log("WE ARE DONE");
-      });
+    // fetch("http://localhost:3333/100")
+    //   .then((response) => {
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+    //     console.log(data);
+    //   });
+    // fetch("http://localhost:3333/50-50")
+    //   .then((response) => {
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+    //     console.log(data);
+    //     return "zintis";
+    //   })
+    //   .then((name) => {
+    //     console.log(name);
+    //   })
+    //   .catch((err) => {
+    //     console.log("CATCH");
+    //     console.log(err);
+    //   })
+    //   .finally((something) => {
+    //     console.log("WE ARE DONE");
+    //   });
 
-    function add(x, y) {
-      return x + y;
-    }
-    add(1, 2);
+    // function add(x, y) {
+    //   return x + y;
+    // }
+    // add(1, 2);
+    const bodyJSON = JSON.stringify({ a: 1, b: 2 });
+
+    fetch("http://localhost:3333/post", {
+      method: "POST",
+      // headers: {
+      //   Accept: "application/json",
+      //   "Content-Type": "application/json",
+      // },
+      body: bodyJSON,
+    })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+      });
   </script>
 </html>
